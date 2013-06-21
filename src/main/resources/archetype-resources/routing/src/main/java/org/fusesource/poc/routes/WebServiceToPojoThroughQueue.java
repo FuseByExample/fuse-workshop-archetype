@@ -16,7 +16,6 @@ public class WebServiceToPojoThroughQueue extends RouteBuilder {
     @EndpointInject(ref = "cxfUri")
     Endpoint cxfEndpoint;
 
-
     @EndpointInject(ref = "activeMqWSQueueUri")
     Endpoint activeMqWSQueueEndpoint;
 
