@@ -77,7 +77,7 @@ FILE
 * Copy the file test/data/incidentId.txt into the directory fusesource/data
 
 ````text
-    e.g. cp ~/Fuse/fuse-by-examples/fuse-workshop-archetype/src/main/resources/archetype-resources/routing/src/test/data/incidentId.txt ~/Temp/poc/routing/fusesource/data/
+    e.g. cp ~/Fuse/fuse-by-examples/fuse-workshop-archetype/src/main/resources/archetype-resources/routing/src/test/data/incidentId.txt fusesource/data/
 ````
 
 * Check the result in the log
