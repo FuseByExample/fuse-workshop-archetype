@@ -66,11 +66,6 @@ c) Web Application Server
 
     mvn jetty:run
 
-* Check in the console that you see the following messages
-
-    Hello Web Application, how are you?
-    Hello Web Application, how are you?
-
 * To generate the WAR file execute the following command
 
     mvn compile war:war
@@ -82,7 +77,7 @@ FILE
 * Copy the file test/data/incidentId.txt into the directory fusesource/data
 
 ````text
-    e.g. cp ~/Fuse/projects/sparks/fuse-archetypes/camel-workshop/src/main/resources/archetype-resources/routing/src/test/data/incidentId.txt /Users/charlesmoulliard/tmp/poc/routing/fusesource/data/
+    e.g. cp ~/Fuse/fuse-by-examples/fuse-workshop-archetype/src/main/resources/archetype-resources/routing/src/test/data/incidentId.txt ~/Temp/poc/routing/fusesource/data/
 ````
 
 * Check the result in the log
