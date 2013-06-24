@@ -2,10 +2,9 @@
 <features>
   <feature name="poc-fuse-camel" version="${version}">
     <feature version="${camel.version}">camel</feature>
-    <feature version="${cxf.version}">cxf</feature>
     <feature version="${camel.version}">camel-cxf</feature>
-    <feature version='${activemq.version}'>activemq-camel</feature>
     <feature version="${camel.version}">camel-jaxb</feature>
+    <feature version='${activemq.version}'>activemq-camel</feature>
     <bundle>mvn:${groupId}/routing/${version}</bundle>
   </feature>
 </features>
