@@ -58,7 +58,7 @@ b) Deploy in JBoss Fuse
 
 * Install Poc camel routes
 
-    features:install poc-camel-routes
+    features:install fuse-camel-routes
 
 c) Web Application Server
 
