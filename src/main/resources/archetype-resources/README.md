@@ -58,7 +58,7 @@ b) Deploy in JBoss Fuse
 
 * Install Poc camel routes
 
-    features:install fuse-camel-routes
+    features:install poc-fuse-camel
 
 c) Web Application Server
 
@@ -111,6 +111,10 @@ WEBSERVICE
        </soapenv:Body>
     </soapenv:Envelope>
 ````
+OR using curl (copy/paste the soap request in a file soap-demo.txt)
+
+curl http://localhost:9090/cxf/service --header "content-type: text/soap+xml; charset=utf-8" --data @soap-demo.txt
+
 
 * Get this response
 
