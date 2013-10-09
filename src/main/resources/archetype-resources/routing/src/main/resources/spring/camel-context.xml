@@ -1,41 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:cxf="http://camel.apache.org/schema/cxf"
-       xmlns:osgi="http://www.springframework.org/schema/osgi"
        xsi:schemaLocation="
        http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/osgi
-       http://www.springframework.org/schema/osgi/spring-osgi.xsd
+         http://www.springframework.org/schema/beans/spring-beans.xsd
        http://camel.apache.org/schema/spring
-       http://camel.apache.org/schema/spring/camel-spring.xsd
+         http://camel.apache.org/schema/spring/camel-spring.xsd
        http://camel.apache.org/schema/cxf
-       http://camel.apache.org/schema/cxf/camel-cxf.xsd">
+         http://camel.apache.org/schema/cxf/camel-cxf.xsd">
 
 
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="placeholderPrefix" value="#["/>
         <property name="placeholderSuffix" value="]"/>
-        <property name="location" value="classpath:route.cfg"/>
+        <property name="location" value="classpath:route.txt"/>
     </bean>
-
-    <!-- Camel Bean Routes -->
-    <bean id="file2queue" class="org.fusesource.poc.routes.FileToPoJoThroughQueue"/>
-    <bean id="webservice2queue" class="org.fusesource.poc.routes.WebServiceToPojoThroughQueue"/>
 
     <!-- POJO/Services -->
     <bean id="feedback" class="org.fusesource.poc.pojo.Feedback"/>
 
     <!-- WebServices -->
-    <cxf:cxfEndpoint id="wsService" address="http://localhost:9090/cxf/service"
-                  serviceClass="org.fusesource.service.Documents"/>
+    <cxf:cxfEndpoint id="wsService"
+                     address="http://localhost:9090/cxf/service"
+                     serviceClass="org.fusesource.service.Documents"
+                     loggingFeatureEnabled="true"/>
 
     <camelContext trace="false" xmlns="http://camel.apache.org/schema/spring">
 
-        <routeBuilder ref="file2queue"/>
-        <routeBuilder ref="webservice2queue"/>
+        <package>org.fusesource.poc.routes</package>
 
         <endpoint id="fileUri" uri="#[fileUri]"/>
         <endpoint id="activeMqQueueUri" uri="#[activeMqQueueUri]"/>

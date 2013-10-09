@@ -1,0 +1,35 @@
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.0.0"
+           xmlns:cxf="http://camel.apache.org/schema/blueprint/cxf">
+
+    <!-- OSGI blueprint property placeholder -->
+    <cm:property-placeholder id="parameters" persistent-id="parameters"/>
+
+    <!-- ActiveMQ Component configured to use ConnectionFactory & Pool exposed as OSGI service by JBoss Fuse-->
+    <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
+        <property name="connectionFactory">
+            <reference interface="javax.jms.ConnectionFactory"/>
+        </property>
+    </bean>
+
+    <!-- POJO/Services -->
+    <bean id="feedback" class="org.fusesource.poc.pojo.Feedback"/>
+
+    <!-- WebServices -->
+    <cxf:cxfEndpoint id="wsService"
+                     address="http://localhost:9090/cxf/service"
+                     serviceClass="org.fusesource.service.Documents"
+                     loggingFeatureEnabled="true"/>
+
+    <camelContext trace="false" xmlns="http://camel.apache.org/schema/blueprint">
+
+        <package>org.fusesource.poc.routes</package>
+
+        <endpoint id="fileUri" uri="{{fileUri}}"/>
+        <endpoint id="activeMqQueueUri" uri="{{activeMqQueueUri}}"/>
+        <endpoint id="activeMqWSQueueUri" uri="{{activeMqWSQueueUri}}"/>
+        <endpoint id="cxfUri" uri="{{cxfUri}}"/>
+
+    </camelContext>
+
+</blueprint>

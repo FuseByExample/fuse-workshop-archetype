@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<features>
-  <feature name="poc-fuse-camel" version="${version}">
-    <feature version="${camel.version}">camel</feature>
-    <feature version="${camel.version}">camel-cxf</feature>
-    <feature version="${camel.version}">camel-jaxb</feature>
-    <feature version='${activemq.version}'>activemq-camel</feature>
-    <bundle>mvn:${groupId}/routing/${version}</bundle>
-  </feature>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
+
+    <feature name="poc-fuse-resources" version="${version}">
+        <bundle>mvn:${groupId}/resources/${version}</bundle>
+    </feature>
+
+    <feature name="poc-fuse-camel" version="${version}">
+
+        <feature version="[2.10,3)">camel</feature>
+        <feature version="[2.10,3)">camel-cxf</feature>
+        <feature version="[2.10,3)">camel-jaxb</feature>
+        <feature version="[5.8,6.0)">activemq-camel</feature>
+
+        <feature>poc-fuse-resources</feature>
+
+        <configfile finalname="/etc/parameters.cfg">mvn:${groupId}/features/${version}/cfg/parameters</configfile>
+
+        <bundle>mvn:${groupId}/routing/${version}</bundle>
+    </feature>
+
 </features>

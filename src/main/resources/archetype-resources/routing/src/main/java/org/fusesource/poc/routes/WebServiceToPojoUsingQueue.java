@@ -4,14 +4,7 @@ import org.apache.camel.Endpoint;
 import org.apache.camel.EndpointInject;
 import org.apache.camel.builder.RouteBuilder;
 
-/**
- * Created by IntelliJ IDEA.
- * User: charlesmoulliard
- * Date: 07/02/11
- * Time: 09:16
- * To change this template use File | Settings | File Templates.
- */
-public class WebServiceToPojoThroughQueue extends RouteBuilder {
+public class WebServiceToPojoUsingQueue extends RouteBuilder {
 
     @EndpointInject(ref = "cxfUri")
     Endpoint cxfEndpoint;
@@ -34,7 +27,7 @@ public class WebServiceToPojoThroughQueue extends RouteBuilder {
         .id("fromQueueToPoJo")
         .log(">>> Web Service Message : ${body}")
         .transform()
-                .method("feedback","clientReply");
+          .method("feedback","clientReply");
 
     }
 

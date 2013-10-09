@@ -8,12 +8,13 @@
     <artifactId>${artifactId}</artifactId>
     <version>${version}</version>
     <packaging>pom</packaging>
-    <name>FuseSource Workshop :: Camel ${artifactId}</name>
+    <name>Fuse Workshop Project :: Camel ${artifactId}</name>
 
     <modules>
         <module>parent</module>
         <module>features</module>
         <module>routing</module>
+        <module>resources</module>
         <!-- <module>tests</module> -->
     </modules>
 

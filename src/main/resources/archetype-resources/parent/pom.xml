@@ -11,6 +11,7 @@
   <packaging>pom</packaging>
 
   <properties>
+
     <!-- plugin -->
     <build-helper-maven-plugin.version>1.5</build-helper-maven-plugin.version>
     <maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
@@ -18,22 +19,13 @@
     <maven-install-plugin.version>2.3.1</maven-install-plugin.version>
     <felix-maven-plugin.version>2.3.7</felix-maven-plugin.version>
 
-    <!-- Fuse Frameworks
-    <activemq.version>5.5.0-fuse-00-43</activemq.version>
-    <camel.version>2.7.1-fuse-00-43</camel.version>
-    <cxf.version>2.4.1-fuse-00-43</cxf.version>
-    <servicemix.version>4.4.0-fuse-00-43</servicemix.version>
-    <karaf.version>2.2.0-fuse-00-43</karaf.version>
-    -->
-
-    <!-- JBoss Fuse 6.0.0 -->
-    <activemq.version>5.8.0.redhat-60024</activemq.version>
-    <camel.version>2.10.0.redhat-60024</camel.version>
-    <cxf.version>2.6.0.redhat-60024</cxf.version>
-    <karaf.version>2.3.0.redhat-60024</karaf.version>
+    <!-- JBoss Fuse 6.0.0-redhat-024-->
+      <activemq.version>5.8.0.redhat-60024</activemq.version>
+      <camel.version>2.10.0.redhat-60024</camel.version>
+      <cxf.version>2.6.0.redhat-60024</cxf.version>
+      <karaf.version>2.3.0.redhat-60024</karaf.version>
 
     <!-- Others -->
-    <!--     <felix.version>3.2.3</felix.version> -->
     <spring.version>3.1.3.RELEASE</spring.version>
     <jetty.version>8.0.1.v20110908</jetty.version>
     <log4j.version>1.2.17</log4j.version>

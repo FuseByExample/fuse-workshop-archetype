@@ -5,14 +5,7 @@ import org.apache.camel.EndpointInject;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.converter.jaxb.JaxbDataFormat;
 
-/**
- * Created by IntelliJ IDEA.
- * User: charlesmoulliard
- * Date: 11/01/11
- * Time: 10:35
- * To change this template use File | Settings | File Templates.
- */
-public class FileToPoJoThroughQueue extends RouteBuilder {
+public class FileToPoJoUsingQueue extends RouteBuilder {
 
 
     @EndpointInject(ref = "fileUri")

@@ -3,11 +3,11 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="
          http://www.springframework.org/schema/beans
-         http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/beans/spring-beans.xsd
          http://camel.apache.org/schema/spring
-         http://camel.apache.org/schema/spring/camel-spring.xsd
+           http://camel.apache.org/schema/spring/camel-spring.xsd
          http://activemq.apache.org/schema/core
-         http://activemq.apache.org/schema/core/activemq-core-5.4.1.xsd">
+           http://activemq.apache.org/schema/core/activemq-core.xsd">
 
   <!--  lets create an embedded ActiveMQ Broker -->
   <broker useJmx="true" persistent="false" xmlns="http://activemq.apache.org/schema/core">

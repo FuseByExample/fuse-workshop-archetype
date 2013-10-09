@@ -7,7 +7,8 @@ import org.apache.camel.Body;
 public class Feedback {
 
     public DocumentId createRequest(@Body String id) {
-         DocumentId request = new DocumentId();
+
+        DocumentId request = new DocumentId();
         request.setId(id);
         return request;
     }

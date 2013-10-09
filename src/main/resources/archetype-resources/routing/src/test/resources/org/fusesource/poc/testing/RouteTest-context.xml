@@ -13,7 +13,7 @@
   <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
     <property name="placeholderPrefix" value="#["/>
     <property name="placeholderSuffix" value="]"/>
-    <property name="location" value="classpath:route.cfg"/>
+    <property name="location" value="classpath:route.txt"/>
   </bean>
 
   <import resource="classpath:META-INF/cxf/cxf.xml"/>

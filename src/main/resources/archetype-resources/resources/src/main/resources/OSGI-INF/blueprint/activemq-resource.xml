@@ -1,0 +1,27 @@
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.0.0"
+           xmlns:ext="http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.0.0"
+           xmlns:amq="http://activemq.apache.org/schema/core">
+
+    <ext:property-placeholder />
+
+    <bean id="activemqConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory" >
+        <property name="brokerURL" value="tcp://localhost:61616?connectionTimeout=10000" />
+        <property name="userName" value="admin"/>
+        <property name="password" value="admin"/>
+    </bean>
+
+    <bean id="pooledConnectionFactory" class="org.apache.activemq.pool.PooledConnectionFactory">
+        <property name="maxConnections" value="10" />
+        <property name="connectionFactory" ref="activemqConnectionFactory" />
+    </bean>
+
+    <reference id="transactionManager" interface="javax.transaction.TransactionManager" />
+
+    <service ref="pooledConnectionFactory" interface="javax.jms.ConnectionFactory">
+        <service-properties>
+            <entry key="name" value="amq-pool"/>
+        </service-properties>
+    </service>
+
+</blueprint>

@@ -176,10 +176,10 @@
                             <sourceRoot>${basedir}/target/generated/src/main/java</sourceRoot>
                             <wsdlOptions>
                                 <wsdlOption>
-                                    <wsdl>${basedir}/src/main/resources/META-INF/wsdl/service.wsdl</wsdl>
+                                    <wsdl>${basedir}/src/main/resources/wsdl/service.wsdl</wsdl>
                                     <bindingFiles>
                                         <bindingFile>
-                                            ${basedir}/src/main/resources/META-INF/wsdl/serializableDocument.jaxb
+                                            ${basedir}/src/main/resources/wsdl/serializableDocument.jaxb
                                         </bindingFile>
                                     </bindingFiles>
                                     <extraargs>
@@ -209,8 +209,7 @@
                 <artifactId>camel-maven-plugin</artifactId>
                 <version>${camel.version}</version>
                 <configuration>
-                    <applicationContextUri>META-INF/spring/camel-context.xml;META-INF/activemq-config.xml
-                    </applicationContextUri>
+                    <applicationContextUri>spring/camel-context.xml;spring/activemq-config.xml</applicationContextUri>
                 </configuration>
             </plugin>
 
