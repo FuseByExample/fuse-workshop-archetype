@@ -8,7 +8,9 @@
     <!-- ActiveMQ Component configured to use ConnectionFactory & Pool exposed as OSGI service by JBoss Fuse-->
     <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
         <property name="connectionFactory">
-            <reference interface="javax.jms.ConnectionFactory"/>
+            <reference interface="javax.jms.ConnectionFactory">
+               <
+            </reference>
         </property>
     </bean>
 
@@ -17,11 +19,14 @@
 
     <!-- WebServices -->
     <cxf:cxfEndpoint id="wsService"
-                     address="http://localhost:9090/cxf/service"
+                     address="{{wsAddressIncident}}"
                      serviceClass="org.fusesource.service.Documents"
                      loggingFeatureEnabled="true"/>
 
     <camelContext trace="false" xmlns="http://camel.apache.org/schema/blueprint">
+
+        <!-- using Camel properties component and refer to the blueprint property placeholder by its id -->
+        <propertyPlaceholder id="properties" location="blueprint:parameters"/>
 
         <package>org.fusesource.poc.routes</package>
 
